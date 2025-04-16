@@ -10,3 +10,16 @@ def getFreq(text):
         else:
             charFreq[char] = 1
     return charFreq
+
+def sortDict(unsortedDict):
+    chars = []
+
+    for key in unsortedDict:
+        chars.append({"char" : key, "freq" : unsortedDict[key]})
+
+    chars.sort(reverse=True, key=sortBy)
+
+    return chars
+
+def sortBy(dict):
+    return dict["freq"]
