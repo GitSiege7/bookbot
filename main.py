@@ -1,4 +1,4 @@
-from stats import getWords
+from stats import getWords, getFreq
 
 def getBookText(path):    
     with open(path) as f:
@@ -7,5 +7,6 @@ def getBookText(path):
 
 def main():
     print(len(getWords(getBookText("books/frankenstein.txt"))), "words found in the document")
+    print(getFreq(getBookText("books/frankenstein.txt")))
 
 main()
