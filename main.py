@@ -8,19 +8,21 @@ def getBookText(path):
 def printDict(chars):
     for char in chars:
         if char["char"].isalpha():
-            print(char["char"], ": ", char["freq"])
+            print(f"{char["char"]}: {char["freq"]}")
 
 def main():
-    print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
-    print("----------- Word Count ----------")
+    #print("============ BOOKBOT ============")
+    #print("Analyzing book found at books/frankenstein.txt...")
+    #print("----------- Word Count ----------")
 
     numWords = len(getWords(getBookText("books/frankenstein.txt")))
     print("Found", numWords, "total words")
 
-    print("--------- Character Count -------")
+    #print("--------- Character Count -------")
 
     freqDict = sortDict(getFreq(getBookText("books/frankenstein.txt")))
     printDict(freqDict)
+
+    #print("============= END ===============")
 
 main()
