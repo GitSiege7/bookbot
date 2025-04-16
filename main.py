@@ -1,3 +1,4 @@
+import sys
 from stats import getWords, getFreq, sortDict
 
 def getBookText(path):    
@@ -11,18 +12,22 @@ def printDict(chars):
             print(f"{char["char"]}: {char["freq"]}")
 
 def main():
-    #print("============ BOOKBOT ============")
-    #print("Analyzing book found at books/frankenstein.txt...")
-    #print("----------- Word Count ----------")
+    if(len(sys.argv) != 2):
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
 
-    numWords = len(getWords(getBookText("books/frankenstein.txt")))
+    numWords = len(getWords(getBookText(sys.argv[1])))
     print("Found", numWords, "total words")
 
-    #print("--------- Character Count -------")
+    print("--------- Character Count -------")
 
-    freqDict = sortDict(getFreq(getBookText("books/frankenstein.txt")))
+    freqDict = sortDict(getFreq(getBookText(sys.argv[1])))
     printDict(freqDict)
 
-    #print("============= END ===============")
+    print("============= END ===============")
 
 main()
